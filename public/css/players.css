@@ -1,0 +1,56 @@
+#controls {
+  background-color: #89BDE8;
+  padding: 4%;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: 'arial';
+  margin: 0% 4%;
+  margin-bottom: 10px;
+  margin-top: 40px;
+  border: 5px solid #46A3F0;
+}
+
+.row {
+  margin: 0 auto;
+  display: block;
+}
+
+.icon {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  margin-left: 40px;
+  background-color: #4b8ed9;
+  border-radius: 10px;
+}
+
+.icon_hover {
+  background-color: #2178BF;
+  border-radius: 100%;
+}
+
+#play_pause {
+  background-image: url('../images/play_pause.png');
+}
+
+#quit{
+  background-image: url('../images/exit.png');
+}
+
+#seek_forward {
+  background-image: url('../images/fast_forward.png');
+}
+
+#seek_backward {
+  background-image: url('../images/fast_backward.png');
+}
+
+#volume_up {
+  background-image: url('../images/volume_up.png');
+}
+
+#volume_down {
+  background-image: url('../images/volume_down.png');
+}

@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Danta</title>
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js' ></script>
+    <script type='text/javascript' src='js/libraries.js' ></script>
+    <script type='text/javascript' src='js/player.js' ></script>
+    <link rel='stylesheet' type='text/css' href='css/main.css' />
+    <link rel='stylesheet' type='text/css' href='css/libraries.css' />
+    <link rel='stylesheet' type='text/css' href='css/players.css' />
+  </head>
+  <body>
+    <div id='controls'>
+      <div class='row'>
+        <span id='play_pause' class='icon'></span>
+        <span id='quit' class='icon'></span>
+        <span id='volume_up' class='icon'></span>
+      </div>
+      <div class='row'>
+        <span id='volume_down' class='icon'></span>
+        <span id='seek_forward' class='icon'></span>
+        <span id='seek_backward' class='icon'></span>
+      </div>
+    </div>
+    <div id='libraries'>
+    </div>
+    <script>
+      $(document).ready(function () {
+        libraries.init();
+        player.init();
+        setTimeout(function(){console.log($('.videos li').size())}, 10);
+      });
+    </script>
+  </body>
+</html>
