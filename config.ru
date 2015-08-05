@@ -3,6 +3,9 @@ require 'bundler'
 
 Bundler.require
 
-require './danta'
+require './danta_app'
+require './danta_api'
 
-run Danta
+#run Danta
+
+run Rack::URLMap.new('/api' => DantaAPI.new, '/' => DantaApp.new)

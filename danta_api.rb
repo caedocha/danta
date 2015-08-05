@@ -1,7 +1,7 @@
 require 'json'
 require_relative 'lib/video_library'
 
-class Danta < Sinatra::Base
+class DantaAPI < Sinatra::Base
 
   helpers VideoLibrary
 
@@ -13,7 +13,7 @@ class Danta < Sinatra::Base
     Pecari::Player.launch(params[:video])
   end
 
-  get '/exec' do |command|
+  get '/exec' do
     Pecari::Player.send(params[:command])
   end
 
