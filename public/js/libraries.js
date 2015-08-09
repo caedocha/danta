@@ -1,7 +1,6 @@
 var libraries = {
   init: function () {
     this.loadVideos();
-    this.initEvents();
   },
   loadVideos: function () {
     var that = this;
@@ -31,7 +30,7 @@ var libraries = {
     var that = this;
     var ol = $('<ol>', { class: 'videos' } );
     $.each(collection, function(index, value) {
-      var li = $('<li>').html(value);
+      var li = $('<li>').html($('<a>').html(value));
       ol.append(li);
     });
     return ol;
@@ -42,14 +41,14 @@ var libraries = {
   },
   initLaunchVideo: function() {
     var that = this;
-    $('.videos li').click(function() {
+    $('.videos li a').on('tap', function(event) {
+      event.preventDefault();
       var video = $(this);
-      var library = video.parent().parent().find('.title').html();
-      video.click(function() {
-        var video_path = library + video.html();
-        var url = '/api/launch?video=' + encodeURIComponent(video_path);
-        that._call(url)
-      });
+      var library = video.parent().parent().parent().find('.title').html();
+      var video_path = library + video.html();
+      var url = '/api/launch?video=' + encodeURIComponent(video_path);
+      that._call(url);
+      that.hover(video);
     });
   },
   _call: function(url) {
@@ -62,4 +61,10 @@ var libraries = {
   initLibraryRoll: function() {
 
   },
+  hover: function(video) {
+    video.addClass('hover');
+    setTimeout(function() {
+      video.removeClass('hover');
+    }, 500);
+  }
 };

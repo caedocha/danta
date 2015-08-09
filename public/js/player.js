@@ -3,19 +3,17 @@ var player = {
     this.initPlayer();
     this.initPlayerToggle();
   },
+  initPlayerToggle: function() {
+  },
   initPlayer: function() {
     var that = this;
-    $('.icon').each(function() {
-      var control = $(this);
-      control.click(function() {
-        var command = control.attr('id');
-        var url = '/api/exec?command=' + command;
-        that._call(url);
-      });
+    console.log('init player');
+    $('.row a').on('tap', function() {
+      var command = $(this).attr('id');
+      var url = '/api/exec?command=' + command;
+      that._call(url);
+      that.hover($(this));
     });
-  },
-  initPlayerToggle: function() {
-
   },
   _call: function(url) {
     $.ajax({
@@ -24,4 +22,9 @@ var player = {
       type: 'json'
     });
   },
+  hover: function(control) {
+    setTimeout(function() {
+      control.removeClass('icon_hover');
+    }, 500);
+  }
 };
