@@ -1,6 +1,6 @@
 var player = {
   init: function () {
-    //this.hide();
+    this.hide();
     this.initPlayer();
     this.initPlayerToggle();
   },
