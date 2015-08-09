@@ -1,3 +1,8 @@
+#libraries {
+  z-index: 1;
+  position: absolute;
+}
+
 .library {
   background: #34C43C;
   padding: 4%;

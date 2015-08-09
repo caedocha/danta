@@ -47,6 +47,7 @@ var libraries = {
       var library = video.parent().parent().parent().find('.title').html();
       var video_path = library + video.html();
       var url = '/api/launch?video=' + encodeURIComponent(video_path);
+      player.show();
       that._call(url);
       that.hover(video);
     });
