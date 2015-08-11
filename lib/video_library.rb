@@ -14,7 +14,7 @@ module VideoLibrary
   private
 
   def self.load_videos(path)
-    Dir.glob("#{path}/**/*.{#{extensions}}").map{ |full_path| File.basename(full_path) }
+    Dir.glob("#{path}/**/*.{#{extensions}}").map{ |full_path| full_path }
   end
 
   def self.extensions
