@@ -30,7 +30,9 @@ var libraries = {
     var that = this;
     var ol = $('<ol>', { class: 'videos' } );
     $.each(collection, function(index, value) {
-      var li = $('<li>').html($('<a>').html(value));
+      var basename = that._basename(value);
+      var link = $('<a>').data('full_path', value).html(basename);
+      var li = $('<li>').html(link);
       ol.append(li);
     });
     return ol;
@@ -44,9 +46,7 @@ var libraries = {
     $('.videos li a').on('tap', function(event) {
       event.preventDefault();
       var video = $(this);
-      var library = video.parent().parent().parent().find('.title').html();
-      //var video_path = library + '/' + video.html();
-      var url = '/api/launch?video=' + encodeURIComponent(video.html());
+      var url = '/api/launch?video=' + encodeURIComponent(video.data('full_path'));
       player.show();
       that._call(url);
       that.hover(video);
@@ -59,8 +59,10 @@ var libraries = {
       type: 'json'
     });
   },
+  _basename: function(path) {
+    return path.split('/').reverse()[0];
+  },
   initLibraryRoll: function() {
-
   },
   hover: function(video) {
     video.addClass('hover');
