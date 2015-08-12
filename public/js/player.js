@@ -15,7 +15,7 @@ var player = {
       that._call(url);
       that.hover(control);
       if(that._isQuit(control)) {
-        setTimeout(that.hide(), 500);
+        setTimeout(that.hide(), 1000);
       }
     });
   },
