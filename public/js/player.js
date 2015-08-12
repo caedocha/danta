@@ -15,7 +15,9 @@ var player = {
       that._call(url);
       that.hover(control);
       if(that._isQuit(control)) {
-        setTimeout(that.hide(), 1000);
+        setTimeout(function() { 
+          that.hide();
+        }, 300);
       }
     });
   },
@@ -26,10 +28,13 @@ var player = {
     }, 500);
   },
   hide: function() {
-    $('#controls').hide();
+    this._controls().hide();
   },
   show: function() {
-    $('#controls').show();
+    this._controls().show();
+  },
+  _controls: function() {
+    return $('#controls');
   },
   _call: function(url) {
     $.ajax({
