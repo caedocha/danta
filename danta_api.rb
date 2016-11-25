@@ -5,8 +5,9 @@ class DantaAPI < Sinatra::Base
 
   helpers VideoLibrary
 
-  get '/' do
-    VideoLibrary.videos.to_json
+  get '/videos' do
+    #VideoLibrary.videos.to_json
+    {videos: ['caca']}.to_json
   end
 
   get '/launch' do
