@@ -16,13 +16,25 @@ var videoLibrary = {
   // private
 
   videoTreeNodes: function(data) {
-    return _.map(data['videos'], this.videoTreeNode);
+    return videoLibrary.traverse(data);
   },
+
+  traverse: function(nodes) {
+    return _.map(nodes, function(node) {
+      return {
+        text: node.name,
+        icon: "glyphicon glyphicon-chevron-right",
+        extra: { path: node.path },
+        nodes: videoLibrary.traverse(node.nodes)
+      }
+    });
+  },
+
   videoTreeNode: function(video) {
     return {
-      text: video,
+      text: video.name,
       icon: "glyphicon glyphicon-chevron-right",
-      extra: { path: video }
+      extra: { path: video.name }
     }
   },
   fetchVideoLibrary: function() {
