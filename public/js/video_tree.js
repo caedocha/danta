@@ -7,6 +7,9 @@ var videoTree = {
       }
     );
   },
+  isLeafNode: function(id) {
+    return this.get().treeview('getNode', id).nodes.length > 0;
+  },
   deselectAllNodes: function() {
     this.get().treeview('unselectNode', this.selectedNode().nodeId);
   },

@@ -11,9 +11,11 @@ var danta = {
     videoLibrary.get(function(videoNodes) {
       videoTree.init(
         videoNodes,
-        function(event, data) {
-          playerActions.launch(data);
-          playerModal.show();
+        function(event, node) {
+          if(!videoTree.isLeafNode(node.nodeId)) {
+            playerActions.launch(node);
+            playerModal.show();
+          }
         }
       );
     });
