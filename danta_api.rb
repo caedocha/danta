@@ -9,7 +9,7 @@ class DantaAPI < Sinatra::Base
 
   get '/videos' do
     #VideoLibrary.videos.to_json
-    DummyLibrary.videos.to_json
+    VideoLibrary.videos.to_json
   end
 
   get '/launch' do

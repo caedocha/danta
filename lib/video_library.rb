@@ -1,4 +1,5 @@
 require 'yaml'
+require_relative 'tree'
 
 module VideoLibrary
 
@@ -6,15 +7,15 @@ module VideoLibrary
   VIDEO_LIBRARIES = YAML::load(File.open(File.join(Dir.pwd, 'config', 'video_library.yml')))['videos']
 
   def self.videos
-    VIDEO_LIBRARIES.map do |library|
-      { library: library, videos: load_videos(library) }
-    end
+    VIDEO_LIBRARIES
+      .map { |library| Tree.new(paths: video_paths(library)) }
+      .flat_map { |library| library.to_h }
   end
 
   private
 
-  def self.load_videos(path)
-    Dir.glob("#{path}/**/*.{#{extensions}}").map{ |full_path| full_path }
+  def self.video_paths(path)
+    Dir.glob("#{path}/**/*.{#{extensions}}")
   end
 
   def self.extensions
