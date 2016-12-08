@@ -21,7 +21,8 @@
       function connect() {
         ws = new WebSocket("ws://localhost:9292/api/ws");
         ws.onmessage = function(event) {
-          console.log(event.data);
+          var msg = event.data
+          console.log(msg);
         };
         ws.onopen = function() {
           console.log('Connnection opened');

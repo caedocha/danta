@@ -22,7 +22,8 @@ class DantaAPI < Sinatra::Base
 
         ws.onmessage do |msg|
           p "Received: #{msg}"
-          ws.send("Pong: #{msg}")
+          #ws.send("Pong: #{msg}")
+          ws.send(VideoLibrary.videos.to_json)
         end
 
         ws.onclose do
