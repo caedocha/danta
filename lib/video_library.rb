@@ -1,5 +1,5 @@
 require 'yaml'
-require_relative 'tree'
+require_relative 'library/tree'
 
 module VideoLibrary
 
@@ -8,7 +8,7 @@ module VideoLibrary
 
   def self.videos
     VIDEO_LIBRARIES
-      .map { |library| Tree.new(paths: video_paths(library)) }
+      .map { |library| Library::Tree.new(paths: video_paths(library)) }
       .flat_map { |library| library.to_h }
   end
 
