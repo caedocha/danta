@@ -13,16 +13,21 @@
           connect();
           $("#send").click(function() {
             var msg = $("#input").val();
-            console.log("Sending msg: " + msg);
-            ws.send(msg);
+            //console.log("Sending msg: " + msg);
+            var json = { "action": "launch", "params": { "video": '/Downalods/video.mp4'}}
+            console.log(json);
+            console.log(JSON.stringify(json));
+            ws.send(JSON.stringify(json));
           });
       });
 
       function connect() {
         ws = new WebSocket("ws://localhost:9292/api/ws");
         ws.onmessage = function(event) {
-          var msg = event.data
-          console.log(msg);
+          var msg = JSON.parse(event.data);
+          console.log(msg.data);
+          console.log(msg.action);
+          console.log(msg.status);
         };
         ws.onopen = function() {
           console.log('Connnection opened');

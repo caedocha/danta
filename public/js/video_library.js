@@ -1,16 +1,11 @@
 var videoLibrary = {
 
-  get: function(onVideosLoadedCallback) {
-    var that = this;
-    // TODO: Find out why apiClient is not working with this request.
-    $.ajax( {
-      method: 'GET',
-      url: this.videoLibraryUrl(),
-      type: 'json'
-    }).done(function(data) {
-      var parsedData = JSON.parse(data)
-      onVideosLoadedCallback(that.videoTreeNodes(parsedData));
-    });
+  get: function() {
+   webSocketClient.push(this.videosRequest());
+  },
+
+  videosRequest: function() {
+    return { action: "videos", params: {} };
   },
 
   // private
@@ -37,10 +32,5 @@ var videoLibrary = {
       extra: { path: video.name }
     }
   },
-  fetchVideoLibrary: function() {
-    return apiClient.get(this.videoLibraryUrl(), {});
-  },
-  videoLibraryUrl: function() {
-    return '/api/videos';
-  }
+
 };

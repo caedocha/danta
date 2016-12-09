@@ -4,21 +4,15 @@ $(document).ready(function() {
 
 var danta = {
   init: function() {
+    this.connectWebSocketClient();
     this.initTree();
     this.initPlayer();
   },
+  connectWebSocketClient: function() {
+    webSocketClient.connect();
+  },
   initTree: function() {
-    videoLibrary.get(function(videoNodes) {
-      videoTree.init(
-        videoNodes,
-        function(event, node) {
-          if(!videoTree.isLeafNode(node.nodeId)) {
-            playerActions.launch(node);
-            playerModal.show();
-          }
-        }
-      );
-    });
+    videoLibrary.get();
   },
   initPlayer: function() {
     playerModal.init(

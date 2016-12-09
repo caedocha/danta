@@ -39,18 +39,23 @@ var playerActions = {
   // private
 
   execCommand: function(data) {
-    apiClient.get(this.execUrl(), data);
+    webSocketClient.push(this.execRequest(data));
   },
-  execUrl: function() {
-    return '/api/exec';
+
+  execRequest: function(data) {
+    return { action: "exec", params: { command: data } };
   },
-  launchVideo: function(videoPath) {
-    apiClient.get(this.launchUrl(), videoPath);
+
+  launchVideo: function(data) {
+    webSocketClient.push(this.launchRequest(data));
   },
-  launchUrl: function() {
-    return '/api/launch';
+
+  launchRequest: function(data) {
+    return { action: "launch", params: { video: this.encodeVideoPath(data) } };
   },
+
   encodeVideoPath(videoPath) {
     return encodeURIComponent(videoPath);
   }
+
 };
