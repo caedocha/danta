@@ -1,16 +1,13 @@
 require 'json'
 require 'sinatra-websocket'
 require_relative 'lib/video_library'
-require_relative 'lib/dummy_library'
 require_relative 'lib/request_handler'
 
 class DantaAPI < Sinatra::Base
 
   helpers VideoLibrary
-  helpers DummyLibrary
 
   set :sockets, []
-  #set :bind, '0.0.0.0'
 
   get '/ws' do
     RequestHandler.new(request: request).process
