@@ -16,21 +16,30 @@ var videoLibrary = {
 
   traverse: function(nodes) {
     return _.map(nodes, function(node) {
-      return {
-        text: node.name,
-        icon: "glyphicon glyphicon-chevron-right",
-        extra: { path: node.path },
-        nodes: videoLibrary.traverse(node.nodes)
+      if(node.nodes.length > 0) {
+        return videoLibrary.videoTreeNode(node);
+      } else {
+        return videoLibrary.videoLeafNode(node);
       }
     });
   },
 
-  videoTreeNode: function(video) {
+  videoTreeNode: function(node) {
     return {
-      text: video.name,
+      text: node.name,
       icon: "glyphicon glyphicon-chevron-right",
-      extra: { path: video.name }
-    }
+      extra: { path: node.path },
+      nodes: videoLibrary.traverse(node.nodes)
+    };
   },
+
+  videoLeafNode: function(node) {
+    return {
+      text: node.name,
+      icon: "glyphicon glyphicon-film",
+      extra: { path: node.path },
+      nodes: videoLibrary.traverse(node.nodes)
+    };
+  }
 
 };
