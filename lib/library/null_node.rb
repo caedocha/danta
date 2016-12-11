@@ -22,6 +22,10 @@ module Library
       to_h.to_json
     end
 
+    def path
+      ''
+    end
+
   end
 
 end

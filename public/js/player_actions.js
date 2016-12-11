@@ -47,11 +47,11 @@ var playerActions = {
   },
 
   launchVideo: function(data) {
-    webSocketClient.push(this.launchRequest(data));
+    webSocketClient.push(this.launchRequest(data.video));
   },
 
-  launchRequest: function(data) {
-    return { action: "launch", params: { video: this.encodeVideoPath(data) } };
+  launchRequest: function(video) {
+    return { action: "launch", params: { video: video } };
   },
 
   encodeVideoPath(videoPath) {

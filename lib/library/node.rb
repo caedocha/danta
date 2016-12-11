@@ -49,6 +49,7 @@ module Library
         next_parent = next_parent.parent
       end
       parent_paths.reverse.join('/')
+      File.join(['/', parent_paths.reverse].flatten)
     end
 
   end

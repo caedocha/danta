@@ -32,7 +32,7 @@ class Dispatcher
   end
 
   def launch_action
-    Pecari::Player.launch(params[:video])
+    Pecari::Player.launch(CGI.unescape(params['video']))
     launch_response
   end
 
@@ -45,7 +45,7 @@ class Dispatcher
   end
 
   def exec_action
-    Pecari::Player.send(params[:command])
+    Pecari::Player.send(params['command'])
     exec_response
   end
 
@@ -82,7 +82,7 @@ class Dispatcher
   end
 
   def params
-    @params ||=data['params']
+    @params ||= data['params']
   end
 
 end

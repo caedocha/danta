@@ -7,7 +7,7 @@ var webSocketClient = {
   },
 
   retryInterval: function() {
-    return 5;
+    return 50;
   },
 
   webServiceURL: function() {
