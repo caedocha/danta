@@ -5,45 +5,45 @@ var playerActions = {
   },
   play: function() {
     console.log('Playing video');
-    this.execCommand({ command: 'play_pause'});
+    this.execCommand('play_pause');
   },
-  stop: function() {
+  pause: function() {
     console.log('Stopping video');
-    this.execCommand({ command: 'play_pause'});
+    this.execCommand('play_pause');
   },
   quit: function() {
     console.log('Quitting video');
-    this.execCommand({ command: 'quit'});
+    this.execCommand('quit');
   },
   fastForward: function() {
     console.log('Fast forwarding video');
-    this.execCommand({ command: 'seek_forward'});
+    this.execCommand('seek_forward');
   },
   fastBackward: function() {
     console.log('Fast backwarding video');
-    this.execCommand({ command: 'seek_backward'});
+    this.execCommand('seek_backward');
   },
   mute: function() {
     console.log('Muting video');
-    this.execCommand({ command: 'mute'});
+    this.execCommand('mute');
   },
   turnVolumeUp: function() {
     console.log('Turning volume up');
-    this.execCommand({ command: 'volume_up'});
+    this.execCommand('volume_up');
   },
   turnVolumeDown: function() {
     console.log('Turning volume down');
-    this.execCommand({ command: 'volume_down'});
+    this.execCommand('volume_down');
   },
 
   // private
 
-  execCommand: function(data) {
-    webSocketClient.push(this.execRequest(data));
+  execCommand: function(command) {
+    webSocketClient.push(this.execRequest(command));
   },
 
-  execRequest: function(data) {
-    return { action: "exec", params: { command: data } };
+  execRequest: function(command) {
+    return { action: "exec", params: { command: command} };
   },
 
   launchVideo: function(data) {
