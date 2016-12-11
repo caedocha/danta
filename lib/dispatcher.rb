@@ -53,7 +53,7 @@ class Dispatcher
     {
       action: action,
       status: 'success',
-      data: "executing #{params['param']}"
+      data: "executing #{params['command']}"
     }.to_json
   end
 
