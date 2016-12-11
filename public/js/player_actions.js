@@ -14,6 +14,7 @@ var playerActions = {
   quit: function() {
     console.log('Quitting video');
     this.execCommand('quit');
+    playerModal.hide();
   },
   fastForward: function() {
     console.log('Fast forwarding video');

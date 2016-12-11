@@ -8,5 +8,9 @@ var playerModal = {
   show: function() {
     console.log('Showing player modal...');
     playerModal.get().modal();
+  },
+  hide: function() {
+    console.log('Hiding player modal...');
+    playerModal.get().modal('hide');
   }
 };
