@@ -75,6 +75,20 @@ export DANTA_PORT=9999
 export DANTA_VIDEO_LIBRARY=/Other/video/library/directory
 ```
 
+## Starting Danta at boot
+
+Probably, you want to have Danta starting during boot time. In order to do this, edit the `rc.local` file:
+
+```
+sudo vim /etc/rc.local
+```
+
+Add the following line at the end of the file:
+
+```
+danta &
+```
+
 ## Supported Formats
 
 Danta only supports `mkv`, `mov` and `mp4` videos. Any other video type is filtered out.
