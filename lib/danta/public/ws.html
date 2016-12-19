@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Danta WS Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+    <script>
+
+      var ws;
+
+      $(document).ready(function() {
+          connect();
+          $("#send").click(function() {
+            var msg = $("#input").val();
+            //console.log("Sending msg: " + msg);
+            var json = { "action": "launch", "params": { "video": '/Downalods/video.mp4'}}
+            console.log(json);
+            console.log(JSON.stringify(json));
+            ws.send(JSON.stringify(json));
+          });
+      });
+
+      function connect() {
+        ws = new WebSocket("ws://localhost:9292/api/ws");
+        ws.onmessage = function(event) {
+          var msg = JSON.parse(event.data);
+          console.log(msg.data);
+          console.log(msg.action);
+          console.log(msg.status);
+        };
+        ws.onopen = function() {
+          console.log('Connnection opened');
+        };
+        ws.onclose = function() {
+          console.log('Connnection closed');
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Danta WebSocket Demo</h1>
+      <form id="form">
+       <input type="text" id="input" value="send a message"></input>
+       <input type="button" id="send" value="Send"></input>
+     </form>
+    </div>
+  </body>
+</html>

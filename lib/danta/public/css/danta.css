@@ -1,0 +1,15 @@
+#player .btn {
+  margin: 10px 10px 0px 0px;
+}
+
+#controls {
+  text-align: center;
+}
+
+.node-tree {
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  width:100%;
+  display:block;
+}

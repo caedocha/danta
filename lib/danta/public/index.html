@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Danta Video Player</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="css/danta.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+    <script src="js/bootstrap-treeview.min.js"></script>
+    <script src="js/web_socket_client.js"></script>
+    <script src="js/response_dispatcher.js"></script>
+    <script src="js/videos_response.js"></script>
+    <script src="js/video_tree.js"></script>
+    <script src="js/video_library.js"></script>
+    <script src="js/player_actions.js"></script>
+    <script src="js/player_modal.js"></script>
+    <script src="js/danta.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Danta Video Player</h1>
+      <div id="tree"></div>
+      <div id="player" class="modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              Player
+            </div>
+            <div class="modal-body">
+              <div id="controls">
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.play()"><span class="glyphicon glyphicon-play"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.pause()"><span class="glyphicon glyphicon-pause"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.fastBackward()"><span class="glyphicon glyphicon-fast-backward"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.fastForward()"><span class="glyphicon glyphicon-fast-forward"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.mute()"><span class="glyphicon glyphicon-volume-off"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.turnVolumeDown()"><span class="glyphicon glyphicon-volume-down"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.turnVolumeUp()"><span class="glyphicon glyphicon-volume-up"></span></button>
+                <button type="button" class="btn btn-default btn-lg" onclick="playerActions.quit()"><span class="glyphicon glyphicon-off"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

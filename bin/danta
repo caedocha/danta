@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'danta'
+
+Danta::Root.new.start
