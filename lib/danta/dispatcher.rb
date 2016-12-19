@@ -1,4 +1,6 @@
 require 'json'
+require 'pecari'
+require_relative 'video_library'
 
 class Dispatcher
 
@@ -27,7 +29,7 @@ class Dispatcher
     {
       action: action,
       status: 'success',
-      data: VideoLibrary.videos.to_json
+      data: Danta::VideoLibrary.new.videos.to_json
     }.to_json
   end
 
