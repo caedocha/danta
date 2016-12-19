@@ -51,6 +51,12 @@ Just call the danta command and the app will be ready to use.
 danta
 ```
 
+Access it with your smartphone's browser using the RPi's IP address. This is mine, for example:
+
+```
+192.168.1.10:9292
+```
+
 ### Danta Environment Variables
 
 Danta's behavior can be customized with the following environment variables:
