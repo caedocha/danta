@@ -89,6 +89,8 @@ Add the following line at the end of the file:
 danta &
 ```
 
+Save, exit and reboot the RPi.
+
 ## Supported Formats
 
 Danta only supports `mkv`, `mov` and `mp4` videos. Any other video type is filtered out.
