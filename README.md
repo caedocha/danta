@@ -43,7 +43,9 @@ videos:
 gem install danta
 ```
 
-### Start Danta
+## Start Danta
+
+Just call the danta command and the app will be ready to use.
 
 ```
 danta
@@ -66,17 +68,6 @@ export DANTA_HOST=localhost
 export DANTA_PORT=9999
 export DANTA_VIDEO_LIBRARY=/Other/video/library/directory
 ```
-
-## Usage
-
-To start Danta, run the following command:
-
-```
-cd /path/to/danta
-rackup --host 0.0.0.0. -p 9292
-```
-
-We're done. You can access Danta on `localhost:9292`. If you're going to access Danta with another device such as a smartphone, use your raspberry pi's IP instead of localhost, like this: `192.168.1.10:9292`, for example.
 
 ## Supported Formats
 
