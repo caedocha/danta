@@ -19,24 +19,52 @@ Danta uses [Pecari](https://github.com/caedocha/pecari) to play videos, so insta
 sudo apt-get install xdotool omxplayer
 ```
 
-### Clone and set-up Danta repository
-
-Danta is a repository, not a gem... yet. Therefore, you need to clone it in your Raspberry Pi.
-
-```
-git clone https://github.com/caedocha/danta.git
-cd /path/to/danta
-bundle install
-```
-
 ### Add Video Library file
 
-Danta needs to know where is your video library. Add a `video_library.yml` file in the config directory.
+Danta needs to know where is your video library. Add a `video_library.yml` file in the home directory.
 
 ```
-cd /path/to/danta/config/
-cp video_library.yml.sample video_library.yml
+cd ~
 vim video_library.yml # Add your video library path here.
+```
+
+With the following data:
+
+```
+--
+videos:
+  - '/path/to/videos/directory/'
+
+```
+
+### Install Danta gem
+
+```
+gem install danta
+```
+
+### Start Danta
+
+```
+danta
+```
+
+### Danta Environment Variables
+
+Danta's behavior can be customized with the following environment variables:
+
+```
+DANTA_HOST # Overrides the default host, 0.0.0.0
+DANTA_PORT # Overrides the default port, 9292
+DANTA_VIDEO_LIBRARY # Overrides the default video library directory, the current user's home directory (~)
+```
+
+Examples:
+
+```
+export DANTA_HOST=localhost
+export DANTA_PORT=9999
+export DANTA_VIDEO_LIBRARY=/Other/video/library/directory
 ```
 
 ## Usage
