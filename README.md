@@ -31,7 +31,6 @@ vim video_library.yml # Add your video library path here.
 With the following data:
 
 ```
---
 videos:
   - '/path/to/videos/directory/'
 
